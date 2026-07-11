@@ -58,6 +58,7 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     color-scheme: light;
+    overflow-x: hidden;
 }
 
 body {
@@ -224,7 +225,7 @@ section {
 .main-header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1010;
     height: 80px;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
@@ -1883,7 +1884,9 @@ section {
     .nav-menu {
         position: fixed;
         top: 80px;
-        right: -100%;
+        right: 0;
+        transform: translateX(100%);
+        visibility: hidden;
         width: 85%;
         max-width: 320px;
         height: calc(100vh - 80px);
@@ -1894,12 +1897,13 @@ section {
         padding: 40px 24px;
         gap: 32px;
         z-index: 1005;
-        transition: right var(--transition-smooth);
+        transition: transform var(--transition-smooth), visibility var(--transition-smooth);
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
     }
 
     .nav-menu.active {
-        right: 0;
+        transform: translateX(0);
+        visibility: visible;
     }
 
     .nav-list {
@@ -1936,16 +1940,18 @@ section {
         left: 0;
         width: 100%;
         height: calc(100vh - 80px);
-        background-color: rgba(17, 26, 18, 0.4);
+        background-color: rgba(17, 26, 18, 0.45);
         backdrop-filter: blur(4px);
         z-index: 1000;
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
-        transition: opacity var(--transition-fast);
+        transition: opacity var(--transition-fast), visibility var(--transition-fast);
     }
 
     .nav-overlay.active {
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
     }
 
