@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburgerBtn.classList.toggle('active');
         navMenu.classList.toggle('active');
         navOverlay.classList.toggle('active');
-        
+
         // Prevent body scroll when menu is open
         if (navMenu.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
@@ -57,14 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (target === 'drivers') {
             tabDriversBtn.classList.add('active');
             tabOwnersBtn.classList.remove('active');
-            
+
             // Animate tab content change
             ownersContent.classList.remove('active');
             driversContent.classList.add('active');
         } else {
             tabOwnersBtn.classList.add('active');
             tabDriversBtn.classList.remove('active');
-            
+
             driversContent.classList.remove('active');
             ownersContent.classList.add('active');
         }
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (trigger.getAttribute('href') === '#contact' || trigger.classList.contains('solution-link')) {
                 e.preventDefault();
                 contactSection.scrollIntoView({ behavior: 'smooth' });
-                
+
                 // Highlight the form header briefly
                 const formCard = document.querySelector('.contact-form-card');
                 formCard.style.transform = 'scale(1.02)';
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
        4. Scroll Animation System (Intersection Observer)
        ========================================================================== */
     const fadeInUpElements = document.querySelectorAll('.fade-in-up');
-    
+
     const fadeInUpObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -162,10 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
             function updateCount(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                
+
                 // Ease out cubic progress curve
                 const easeProgress = 1 - Math.pow(1 - progress, 3);
-                
+
                 const currentValue = Math.floor(easeProgress * target);
                 stat.textContent = currentValue;
 
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkField(input, validationFn, errorId) {
         const group = input.closest('.form-group');
         const isValid = validationFn(input.value.trim());
-        
+
         if (!isValid) {
             group.classList.add('has-error');
             return false;
@@ -277,12 +277,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Construct formatted WhatsApp message
             const formattedMessage = `*New Request - arrivo website*\n` +
-                                     `---------------------------------\n` +
-                                     `*Name:* ${name}\n` +
-                                     `*Email:* ${email}\n` +
-                                     `*Phone:* ${phone}\n` +
-                                     `*Type:* ${subject}\n` +
-                                     `*Message:* ${message ? message : 'N/A'}`;
+                `---------------------------------\n` +
+                `*Name:* ${name}\n` +
+                `*Email:* ${email}\n` +
+                `*Phone:* ${phone}\n` +
+                `*Type:* ${subject}\n` +
+                `*Message:* ${message ? message : 'N/A'}`;
 
             const whatsappUrl = `https://wa.me/919112935999?text=${encodeURIComponent(formattedMessage)}`;
 
