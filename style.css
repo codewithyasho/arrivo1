@@ -247,9 +247,9 @@ section {
 }
 
 .brand-logo {
-    height: 48px;
+    height: auto;
     /* Perfectly sized logo */
-    width: auto;
+    width: 5rem;
     object-fit: contain;
 }
 
@@ -922,10 +922,31 @@ section {
 }
 
 .solution-icon {
-    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    background-color: var(--clr-brand-light);
+    color: var(--clr-brand);
+    border-radius: var(--border-radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition-smooth);
+}
+
+.solution-icon svg {
+    width: 24px;
+    height: 24px;
+    transition: transform var(--transition-smooth);
+}
+
+.solution-card:hover .solution-icon {
+    background-color: var(--clr-brand);
+    color: #ffffff;
+}
+
+.solution-card:hover .solution-icon svg {
+    transform: rotate(360deg);
 }
 
 .solution-card h3 {
@@ -1264,8 +1285,31 @@ section {
 }
 
 .detail-icon {
-    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    background-color: var(--clr-brand-light);
+    color: var(--clr-brand);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    transition: var(--transition-smooth);
+}
+
+.detail-icon svg {
+    width: 20px;
+    height: 20px;
+    transition: transform var(--transition-smooth);
+}
+
+.contact-detail-item:hover .detail-icon {
+    background-color: var(--clr-brand);
+    color: #ffffff;
+}
+
+.contact-detail-item:hover .detail-icon svg {
+    transform: scale(1.15);
 }
 
 .detail-label {
@@ -1284,36 +1328,61 @@ section {
     color: var(--clr-text-title);
 }
 
-/* Map preview link button style */
-.map-preview {
+/* Interactive Map Container */
+.map-container {
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--clr-border);
+    background-color: var(--clr-bg-card);
+    transition: var(--transition-smooth);
 }
 
-.map-link-btn {
+.map-container:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--clr-brand);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 280px;
+    border: 0;
+    display: block;
+    filter: grayscale(0.1) contrast(1.05); /* Soft premium look to match website palette */
+    transition: filter var(--transition-fast);
+}
+
+.map-container:hover iframe {
+    filter: none;
+}
+
+.map-footer {
+    padding: 14px 20px;
+    background-color: var(--clr-bg-secondary);
+    border-top: 1px solid var(--clr-border);
+}
+
+.map-action-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--clr-brand);
-    color: #ffffff;
-    padding: 16px 24px;
+    color: var(--clr-brand);
     font-family: var(--font-heading);
-    font-weight: 600;
-    border-radius: var(--border-radius-md);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
 }
 
-.map-link-btn:hover {
-    background-color: var(--clr-brand-hover);
-    box-shadow: var(--shadow-md);
+.map-action-link:hover {
+    color: var(--clr-brand-hover);
 }
 
-.map-link-btn .arrow {
+.map-action-link .arrow {
     transition: transform var(--transition-fast);
 }
 
-.map-link-btn:hover .arrow {
-    transform: translateX(6px);
+.map-action-link:hover .arrow {
+    transform: translateX(4px);
 }
 
 /* Contact Form Card */
