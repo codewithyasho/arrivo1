@@ -334,7 +334,7 @@ section {
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1fr 1.15fr;
     gap: 48px;
     align-items: center;
 }
@@ -423,7 +423,7 @@ section {
 .hero-main-img {
     border-radius: calc(var(--border-radius-lg) - 8px);
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/11;
     object-fit: cover;
     transition: var(--transition-smooth);
 }
